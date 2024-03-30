@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import 'package:mobile_application/Main_Screens/profilr_page.dart';
+import 'package:mobile_application/Screens/Login.dart';
 import 'package:mobile_application/Screens/popular_job_view.dart';
+import 'package:mobile_application/Screens/search_page.dart';
 import 'package:mobile_application/events/custom_appBar.dart';
 import 'package:mobile_application/events/drawer_widget.dart';
 import 'package:mobile_application/events/head_widget.dart';
@@ -29,7 +31,8 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.all(12.h),
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(() => ProfilePage(drawer: false));
+                    //Get.to(() => ProfilePage(drawer: false));
+                    Get.to(() => LoginPage());
                   },
                   child: CircleAvatar(
                     radius: 15,
@@ -60,7 +63,9 @@ class _HomePageState extends State<HomePage> {
                   height: 20.h,
                 ),
                 SearchBarr(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => SearchPage());
+                  },
                 ),
                 SizedBox(
                   height: 20.h,
@@ -80,6 +85,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Heading(
                   text: "Recent Jobs",
+                  onTap: () {
+                    Get.to(() => PopularView());
+                  },
                 ),
                 SizedBox(
                   height: 10.h,

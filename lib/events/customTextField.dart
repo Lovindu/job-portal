@@ -12,7 +12,10 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey,
+      decoration: BoxDecoration(
+         color: Colors.black,
+        borderRadius: BorderRadius.circular(10)),
+     
       child: TextFormField(
         keyboardType: keyboardType,
         obscureText: obscureText ?? false,
@@ -40,7 +43,7 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         cursorHeight: 25,
         style: TextStyle(
-            fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black),
+            fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white),
         validator: validator,
       ),
     );

@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
+import 'package:mobile_application/Screens/Login.dart';
 import 'package:mobile_application/Screens/loading.dart';
 import 'package:mobile_application/Screens/mainScreen.dart';
 import 'package:mobile_application/controllers/jobs_provider.dart';
@@ -9,9 +9,20 @@ import 'package:mobile_application/controllers/login_provide.dart';
 import 'package:mobile_application/controllers/signup_provider.dart';
 import 'package:mobile_application/controllers/zoom_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+Widget defaultHome = LoadingScreen();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final entrypoint = prefs.getBool('enttrypoint') ?? false;
+  final loggedIn = prefs.getBool('loggedIn') ?? false;
+
+  if (entrypoint & !loggedIn) {
+    defaultHome = LoginPage();
+  } else if (entrypoint && loggedIn) {
+    defaultHome = MainScreen();
+  }
 
   runApp(MultiProvider(
     providers: [
@@ -43,7 +54,7 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
             primarySwatch: Colors.grey,
           ),
-          home: LoadingScreen(),
+          home: defaultHome,
         );
       },
     );

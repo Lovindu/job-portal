@@ -34,10 +34,10 @@ class PageThree extends StatelessWidget {
               children: [
                 CustomButton(
                   onTap: () async {
-                    //final SharedPreferences prefs =
-                    //await SharedPreferences.getInstance();
+                    final SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
 
-                    // await prefs.setBool('entrypoint', true);
+                    await prefs.setBool('entrypoint', true);
                     Get.to(() => const LoginPage());
                   },
                   text: "Login",
@@ -52,7 +52,9 @@ class PageThree extends StatelessWidget {
                   child: Container(
                     width: 150,
                     height: 50,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.white),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white),
                     child: const Center(
                         child: Text(
                       "Sign Up",
