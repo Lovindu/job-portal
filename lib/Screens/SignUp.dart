@@ -8,6 +8,7 @@ import 'package:mobile_application/controllers/zoom_provider.dart';
 import 'package:mobile_application/events/build_style_container.dart';
 import 'package:mobile_application/events/customTextField.dart';
 import 'package:mobile_application/events/page_loader.dart';
+import 'package:mobile_application/events/signup_model.dart';
 import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
@@ -47,121 +48,137 @@ class _SignUpState extends State<SignUp> {
                   context,
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: ListView(
-                      padding: EdgeInsets.zero,
-                      children: [
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        const Text(
-                          "Hello, Welcome to",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 30),
-                        ),
-                        Text(
-                          "JobSL!!!",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 45),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        CustomTextField(
-                          controller: name,
-                          keyboardType: TextInputType.text,
-                          hintText: "Full Name",
-                          validator: (name) {
-                            if (name!.isEmpty) {
-                              return "Please your Full Name";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CustomTextField(
-                          controller: email,
-                          keyboardType: TextInputType.emailAddress,
-                          hintText: "Email",
-                          validator: (email) {
-                            if (email!.isEmpty || !email.contains("@")) {
-                              return "Please enter a valid Email";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CustomTextField(
-                          controller: password,
-                          keyboardType: TextInputType.text,
-                          hintText: "Password",
-                          obscureText: signupNotifier.obscureText,
-                          validator: (password) {
-                            if (signupNotifier
-                                .passwordValidator(password ?? '')) {
-                              return "Plase Enter a valid password with at least one uppercase letter, one lowercase, one digit, a special character and length of 8 characters";
-                            }
-                            return null;
-                          },
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              signupNotifier.obscureText =
-                                  !signupNotifier.obscureText;
-                            },
-                            child: Icon(
-                              signupNotifier.obscureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: () {
-                              Get.to(() => const LoginPage());
-                            },
-                            child: const Text(
-                              "Have an account",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            loginNotifier.firstTime = !loginNotifier.firstTime;
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.black,
-                            ),
-                            width: 150,
+                    child: Form(
+                      key: signupNotifier.signupFormKey,
+                      child: ListView(
+                        padding: EdgeInsets.zero,
+                        children: [
+                          const SizedBox(
                             height: 50,
-                            child: const Center(
-                                child: Text(
-                              "Sign Up",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )),
                           ),
-                        ),
-                      ],
+                          const Text(
+                            "Hello, Welcome to",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 30),
+                          ),
+                          Text(
+                            "JobSL!!!",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 45),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          CustomTextField(
+                            controller: name,
+                            keyboardType: TextInputType.text,
+                            hintText: "Full Name",
+                            validator: (name) {
+                              if (name!.isEmpty) {
+                                return "Please your Full Name";
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomTextField(
+                            controller: email,
+                            keyboardType: TextInputType.emailAddress,
+                            hintText: "Email",
+                            validator: (email) {
+                              if (email!.isEmpty || !email.contains("@")) {
+                                return "Please enter a valid Email";
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomTextField(
+                            controller: password,
+                            keyboardType: TextInputType.text,
+                            hintText: "Password",
+                            obscureText: signupNotifier.obscureText,
+                            validator: (password) {
+                              if (password!.isEmpty || password.length < 8) {
+                                return "Plase Enter a valid password with at least one uppercase letter, one lowercase, one digit, a special character and length of 8 characters";
+                              }
+                              return null;
+                            },
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                signupNotifier.obscureText =
+                                    !signupNotifier.obscureText;
+                              },
+                              child: Icon(
+                                signupNotifier.obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.to(() => const LoginPage());
+                              },
+                              child: const Text(
+                                "Have an account",
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              loginNotifier.firstTime =
+                                  !loginNotifier.firstTime;
+                              if (signupNotifier.validateAndSave()) {
+                                SignupModel model = SignupModel(
+                                    username: name.text,
+                                    email: email.text,
+                                    password: password.text);
+                                signupNotifier.upSignUp(model);
+                              } else {
+                                Get.snackbar('Sign up failed',
+                                    'Please check your user credentails',
+                                    colorText: Colors.white,
+                                    backgroundColor: Colors.red,
+                                    icon: Icon(Icons.add_alarm));
+                              }
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.black,
+                              ),
+                              width: 150,
+                              height: 50,
+                              child: const Center(
+                                  child: Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              )),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ));

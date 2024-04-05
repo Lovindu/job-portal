@@ -35,27 +35,32 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoginNotifier>(builder: (context, loginNotifier, child) {
+
       loginNotifier.getPrefs();
 
       return Scaffold(
-          appBar: PreferredSize(
-              preferredSize: Size.fromHeight(50),
-              child: CustomAppBar(
-                  text: "Login",
-                  child: loginNotifier.entryPoint && loginNotifier.loggedIn
-                      ? GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(CupertinoIcons.arrow_left_circle),
-                        )
-                      : SizedBox.shrink())),
-          body: loginNotifier.loader
-              ? PageLoader()
-              : buildTypeContainer(
-                  context,
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: CustomAppBar(
+            text: "Login",
+            child: loginNotifier.entryPoint && loginNotifier.loggedIn
+                ? GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(CupertinoIcons.arrow_left_circle),
+                  )
+                : SizedBox.shrink(),
+          ),
+        ),
+        body: loginNotifier.loader
+            ? PageLoader()
+            : buildTypeContainer(
+                context,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Form(
+                    key: loginNotifier.loginFormKey,
                     child: ListView(
                       padding: EdgeInsets.zero,
                       children: [
@@ -65,7 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                         const Text(
                           "Welcome Back!",
                           style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 30),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 30,
+                          ),
                         ),
                         const SizedBox(
                           height: 50,
@@ -122,7 +129,9 @@ class _LoginPageState extends State<LoginPage> {
                             child: const Text(
                               "Don't have an account?",
                               style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
@@ -133,14 +142,18 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: () {
                             if (loginNotifier.validateAndSave()) {
                               LoginModel model = LoginModel(
-                                  email: email.text, password: password.text);
+                                email: email.text,
+                                password: password.text,
+                              );
                               loginNotifier.userLogin(model);
                             } else {
-                              Get.snackbar('Sign failed',
-                                  'Please check your user credentails',
-                                  colorText: Colors.white,
-                                  backgroundColor: Colors.red,
-                                  icon: Icon(Icons.add_alarm));
+                              Get.snackbar(
+                                'Sign failed',
+                                'Please check your user credentails',
+                                colorText: Colors.white,
+                                backgroundColor: Colors.red,
+                                icon: Icon(Icons.add_alarm),
+                              );
                             }
                           },
                           child: Container(
@@ -151,19 +164,23 @@ class _LoginPageState extends State<LoginPage> {
                             width: 150,
                             height: 50,
                             child: const Center(
-                                child: Text(
-                              "Login",
-                              style: TextStyle(
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            )),
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                ));
+                ),
+              ),
+      );
     });
   }
 }

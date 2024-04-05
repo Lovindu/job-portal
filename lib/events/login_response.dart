@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final loginResponseModel = loginResponseModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 LoginResponseModel loginResponseModelFromJson(String str) =>
@@ -12,10 +7,6 @@ String loginResponseModelToJson(LoginResponseModel data) =>
     json.encode(data.toJson());
 
 class LoginResponseModel {
-  final String id;
-  final String profile;
-  final String userToken;
-
   LoginResponseModel({
     required this.id,
     required this.profile,
@@ -24,14 +15,17 @@ class LoginResponseModel {
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
       LoginResponseModel(
-        id: json["_id"],
-        profile: json["profile"],
-        userToken: json["userToken"]
+        id: json['_id'],
+        profile: json['profile'],
+        userToken: json['userToken'],
       );
+  final String id;
+  final String profile;
+  final String userToken;
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "profile": profile,
-        "userToken":userToken,
+        '_id': id,
+        'profile': profile,
+        'userToken': userToken,
       };
 }

@@ -1,27 +1,26 @@
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-LoginModel loginModelFromJson(String str) => LoginModel.fromJson(json.decode(str));
+LoginModel loginModelFromJson(String str) =>
+    LoginModel.fromJson(json.decode(str));
 
 String loginModelToJson(LoginModel data) => json.encode(data.toJson());
 
 class LoginModel {
-    final String email;
-    final String password;
+  LoginModel({
+    required this.email,
+    required this.password,
+  });
 
-    LoginModel({
-        required this.email,
-        required this.password,
-    });
+  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
+        email: json['email'],
+        password: json['password'],
+      );
 
-    factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
-        email: json["email"],
-        password: json["password"],
-    );
+  final String email;
+  final String password;
 
-    Map<String, dynamic> toJson() => {
-        "email": email,
-        "password": password,
-    };
+  Map<String, dynamic> toJson() => {
+        'email': email,
+        'password': password,
+      };
 }

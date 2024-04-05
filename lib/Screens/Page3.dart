@@ -38,7 +38,7 @@ class PageThree extends StatelessWidget {
                         await SharedPreferences.getInstance();
 
                     await prefs.setBool('entrypoint', true);
-                    Get.to(() => const LoginPage());
+                    Get.to(() =>  LoginPage());
                   },
                   text: "Login",
                   width: 150,

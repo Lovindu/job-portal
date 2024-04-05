@@ -22,16 +22,16 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Consumer<ZoomNotifier>(builder: (context, zoomNotifier, child) {
       return ZoomDrawer(
-      menuScreen: DrawerScreen(indexSetter: (index) {
-        zoomNotifier.currentIndex = index;
-      }),
-      mainScreen: currentScreen(),
-      borderRadius: 30,
-      showShadow: true,
-      angle: 0.0,
-      slideWidth: 250,
-      menuBackgroundColor: Colors.black,
-    );
+        menuScreen: DrawerScreen(indexSetter: (index) {
+          zoomNotifier.currentIndex = index;
+        }),
+        mainScreen: currentScreen(),
+        borderRadius: 30,
+        showShadow: true,
+        angle: 0.0,
+        slideWidth: 250,
+        menuBackgroundColor: Colors.black,
+      );
     });
   }
 
@@ -55,5 +55,3 @@ class _MainScreenState extends State<MainScreen> {
     }
   }
 }
-
-
