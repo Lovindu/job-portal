@@ -20,14 +20,14 @@ class PageThree extends StatelessWidget {
           children: [
             Image.asset("lib/Images/jobtest2.png"),
             const SizedBox(
-              height: 0,
+              height: 10,
             ),
             const Text(
               "Welcome to JobSL",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
             ),
             const SizedBox(
-              height: 0,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -38,7 +38,7 @@ class PageThree extends StatelessWidget {
                         await SharedPreferences.getInstance();
 
                     await prefs.setBool('entrypoint', true);
-                    Get.to(() =>  LoginPage());
+                    Get.to(() => LoginPage());
                   },
                   text: "Login",
                   width: 150,
@@ -59,7 +59,7 @@ class PageThree extends StatelessWidget {
                         child: Text(
                       "Sign Up",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     )),
                   ),
                 )
@@ -68,11 +68,11 @@ class PageThree extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            GestureDetector(
+            /*GestureDetector(
                 onTap: () {
                   Get.to(() => const MainScreen());
                 },
-                child: const Text("Continue as a Guest"))
+                child: const Text("Continue as a Guest"))*/
           ],
         ),
       ),

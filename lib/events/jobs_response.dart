@@ -9,6 +9,7 @@ class JobsResponse {
   final String location;
   final String company;
   final String description;
+  final String contract;
   final String agentName;
   final String salary;
   final String period;
@@ -23,6 +24,7 @@ class JobsResponse {
     required this.location,
     required this.company,
     required this.description,
+    required this.contract,
     required this.agentName,
     required this.salary,
     required this.period,
@@ -38,6 +40,7 @@ class JobsResponse {
         location: json["location"],
         company: json["company"],
         description: json["description"],
+        contract: json["contract"],
         agentName: json["agentName"],
         salary: json["salary"],
         period: json["period"],
@@ -51,8 +54,9 @@ class JobsResponse {
         "_id": id,
         "title": title,
         "location": location,
-        "company":company,
+        "company": company,
         "description": description,
+        "contract":contract,
         "agentName": agentName,
         "salary": salary,
         "period": period,

@@ -1,12 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mobile_application/Screens/Login.dart';
+import 'package:mobile_application/Screens/Page3.dart';
 import 'package:mobile_application/controllers/login_provide.dart';
 import 'package:mobile_application/controllers/signup_provider.dart';
 import 'package:mobile_application/controllers/zoom_provider.dart';
 import 'package:mobile_application/events/build_style_container.dart';
 import 'package:mobile_application/events/customTextField.dart';
+import 'package:mobile_application/events/custom_appBar.dart';
 import 'package:mobile_application/events/page_loader.dart';
 import 'package:mobile_application/events/signup_model.dart';
 import 'package:provider/provider.dart';
@@ -35,13 +38,18 @@ class _SignUpState extends State<SignUp> {
     var loginNotifier = Provider.of<LoginNotifier>(context);
     return Consumer<SignUpNotifier>(builder: (context, signupNotifier, child) {
       return Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: const Text(
-              "Sign Up",
-              style: TextStyle(fontWeight: FontWeight.w600),
-            ),
+          appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: CustomAppBar(
+            text: "Sign up",
+            child:  GestureDetector(
+                    onTap: () {
+                       Get.offAll(() => const PageThree());
+                    },
+                    child: Icon(CupertinoIcons.arrow_left_circle),
+                  )
           ),
+        ),
           body: signupNotifier.loader
               ? PageLoader()
               : buildTypeContainer(
@@ -130,7 +138,7 @@ class _SignUpState extends State<SignUp> {
                             alignment: Alignment.centerRight,
                             child: GestureDetector(
                               onTap: () {
-                                Get.to(() => const LoginPage());
+                                Get.offAll(() => const LoginPage());
                               },
                               child: const Text(
                                 "Have an account",

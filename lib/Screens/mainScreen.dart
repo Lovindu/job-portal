@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:mobile_application/Main_Screens/applied_jobs.dart';
-import 'package:mobile_application/Main_Screens/bookmark.dart';
 import 'package:mobile_application/Main_Screens/chat_page.dart';
 import 'package:mobile_application/Main_Screens/home_page.dart';
 import 'package:mobile_application/Main_Screens/profilr_page.dart';
@@ -43,10 +41,6 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return const ChatPage();
       case 2:
-        return const BookMark();
-      case 3:
-        return const AppliedJob();
-      case 4:
         return const ProfilePage(
           drawer: true,
         );

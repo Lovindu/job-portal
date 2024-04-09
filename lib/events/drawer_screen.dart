@@ -32,12 +32,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   zoomNotifier.currentIndex == 0 ? Colors.brown : Colors.white),
               drawerItem(Ionicons.chatbubble_outline, "Chat", 1,
                   zoomNotifier.currentIndex == 1 ? Colors.brown : Colors.white),
-              drawerItem(FontAwesome.bookmark, "Saved Jobs", 2,
-                  zoomNotifier.currentIndex == 2 ? Colors.brown : Colors.white),
-              drawerItem(MaterialCommunityIcons.devices, "Device Mng", 3,
-                  zoomNotifier.currentIndex == 3 ? Colors.brown : Colors.white),
-              drawerItem(FontAwesome.user, "Profile", 4,
-                  zoomNotifier.currentIndex == 4 ? Colors.brown : Colors.white)
+              drawerItem(FontAwesome.user, "Profile", 2,
+                  zoomNotifier.currentIndex == 2 ? Colors.brown : Colors.white)
             ],
           ),
         ),

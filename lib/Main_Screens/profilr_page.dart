@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 future: profileNotifier.profile,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   } else if (snapshot.hasError) {
@@ -56,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Container(
                             width: 300,
                             height: 100,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20),
@@ -83,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 imageUrl: UserData.profile,
                                               ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 20,
                                       ),
                                       Column(
@@ -94,23 +94,23 @@ class _ProfilePageState extends State<ProfilePage> {
                                         children: [
                                           Text(
                                             UserData.username,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white),
                                           ),
                                           Row(
                                             children: [
-                                              Icon(
+                                              const Icon(
                                                 MaterialIcons.location_pin,
                                                 color: Colors.grey,
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 5,
                                               ),
                                               Text(
                                                 UserData.location,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 15,
                                                     fontWeight: FontWeight.w500,
                                                     color: Colors.grey),
@@ -123,9 +123,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
+                                      profile = UserData.skills;
                                       Get.to(() => UpdateProfile());
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Feather.edit,
                                       color: Colors.white,
                                       size: 20,
@@ -135,7 +136,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Stack(
@@ -153,13 +154,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                       width: 60.w,
                                       height: 70.h,
                                       color: Colors.white,
-                                      child: Icon(
+                                      child: const Icon(
                                         FontAwesome5Regular.file_pdf,
                                         color: Colors.red,
                                         size: 40,
                                       ),
                                     ),
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment:
@@ -181,7 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         )
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 1,
                                     )
                                   ],
@@ -192,7 +193,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   right: 5.w,
                                   child: GestureDetector(
                                     onTap: () {},
-                                    child: Text(
+                                    child: const Text(
                                       "Edit",
                                       style: TextStyle(
                                           fontSize: 15,
@@ -202,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ))
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
@@ -214,14 +215,14 @@ class _ProfilePageState extends State<ProfilePage> {
                               alignment: Alignment.centerLeft,
                               child: Text(
                                 UserData.email,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.white),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
@@ -238,12 +239,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                     width: 20.w,
                                     height: 20.h,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Text(
                                     UserData.phone,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white),
@@ -252,11 +253,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(20),
@@ -266,7 +267,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(8.h),
-                                  child: Text(
+                                  child: const Text(
                                     "Skills",
                                     style: TextStyle(
                                         fontSize: 16,
@@ -274,7 +275,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         color: Colors.white),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 3,
                                 ),
                                 SizedBox(
@@ -283,7 +284,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 8.w, vertical: 8.h),
                                     child: ListView.builder(
-                                        physics: NeverScrollableScrollPhysics(),
+                                        physics: const NeverScrollableScrollPhysics(),
                                         itemCount: UserData.skills.length,
                                         itemBuilder: (context, index) {
                                           final skill = UserData.skills[index];
@@ -297,7 +298,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               color: Colors.white,
                                               child: Text(
                                                 skill,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.w500,
                                                     color: Colors.black),
@@ -310,7 +311,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           )
                         ],

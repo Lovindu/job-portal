@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:get/route_manager.dart';
+import 'package:mobile_application/Screens/mainScreen.dart';
+import 'package:mobile_application/Services/chat_helper.dart';
+import 'package:mobile_application/Services/message_helper.dart';
 import 'package:mobile_application/controllers/jobs_provider.dart';
 import 'package:mobile_application/events/back_button_profile.dart';
 import 'package:mobile_application/events/build_style_container.dart';
+import 'package:mobile_application/events/create_chat.dart';
 import 'package:mobile_application/events/custom_appBar.dart';
 import 'package:mobile_application/events/custom_button.dart';
 import 'package:mobile_application/events/get_job.dart';
 import 'package:mobile_application/events/page_loader.dart';
+import 'package:mobile_application/events/send_message.dart';
 import 'package:provider/provider.dart';
 
 class JobDetails extends StatefulWidget {
@@ -33,15 +39,17 @@ class _JobDetailsState extends State<JobDetails> {
       return Scaffold(
         appBar: PreferredSize(
             preferredSize: const Size.fromHeight(50),
-            child: CustomAppBar(actions: [
-              GestureDetector(
-                onTap: () {},
-                child: Padding(
-                  padding: EdgeInsets.only(right: 12.w),
-                  child: const Icon(Fontisto.bookmark),
-                ),
-              )
-            ], child: const BackProfile())),
+            child: CustomAppBar(
+                text: "Job Details",
+                actions: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 12.w),
+                    ),
+                  )
+                ],
+                child: const BackProfile())),
         body: buildTypeContainer(
           context,
           FutureBuilder<GetJobRes>(
@@ -193,12 +201,31 @@ class _JobDetailsState extends State<JobDetails> {
                           alignment: Alignment.bottomCenter,
                           child: Padding(
                             padding: EdgeInsets.only(bottom: 20.0.w),
-                            child: const CustomButton(
-                              text: "Please Login",
-                              color: Colors.black,
-                              color2: Colors.grey,
-                              height: 50,
-                              width: 300,
+                            child: GestureDetector(
+                              onTap: () {
+                                CreateChat model =
+                                    CreateChat(userId: job.agentId);
+                                ChatHelper.apply(model).then((response) {
+                                  if (response[0]) {
+                                    SendMessage model = SendMessage(
+                                        content:
+                                            "Hello i'm interested ${job.title} job in $job.location",
+                                        chatId: response[1],
+                                        receiver: job.agentId);
+                                    MesssagingHelper.sendMessage(model)
+                                        .whenComplete(() {
+                                      Get.to(() => MainScreen());
+                                    });
+                                  }
+                                });
+                              },
+                              child: const CustomButton(
+                                text: "Apply Now",
+                                color: Colors.black,
+                                color2: Colors.grey,
+                                height: 50,
+                                width: 300,
+                              ),
                             ),
                           ),
                         )

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
-import 'package:mobile_application/Main_Screens/profilr_page.dart';
-import 'package:mobile_application/Screens/Login.dart';
+import 'package:mobile_application/Screens/loading.dart';
 import 'package:mobile_application/Screens/popular_job_view.dart';
 import 'package:mobile_application/Screens/search_page.dart';
 import 'package:mobile_application/events/custom_appBar.dart';
@@ -30,14 +29,11 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: EdgeInsets.all(12.h),
                 child: GestureDetector(
-                  onTap: () {
-                    //Get.to(() => ProfilePage(drawer: false));
-                    Get.to(() => LoginPage());
-                  },
-                  child: CircleAvatar(
+                  onTap: _logOut,
+                  child: const CircleAvatar(
                     radius: 15,
                     backgroundImage:
-                        AssetImage("lib/Images/icons8-user-50.png"),
+                        AssetImage("lib/Images/icons8-logout-rounded-24.png"),
                   ),
                 ),
               ),
@@ -55,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Search your\n dream job",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
                 ),
@@ -97,5 +93,47 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         )));
+  }
+
+  void _logOut() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text(
+              'Logout?',
+              style: TextStyle(color: Colors.white),
+            ),
+            content: const Text(
+              'Do you want to log out?',
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            elevation: 24.0,
+            icon: const Icon(Icons.logout),
+            iconColor: Colors.white,
+            backgroundColor: Colors.black,
+            actions: [
+              MaterialButton(
+                  child: const Text(
+                    'Ok',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Get.to(() => LoadingScreen());
+                  }),
+              MaterialButton(
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  })
+            ],
+          );
+        });
   }
 }

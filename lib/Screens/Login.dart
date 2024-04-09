@@ -2,14 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mobile_application/Screens/Page3.dart';
 import 'package:mobile_application/Screens/SignUp.dart';
-import 'package:mobile_application/Screens/mainScreen.dart';
 import 'package:mobile_application/controllers/login_provide.dart';
-import 'package:mobile_application/controllers/zoom_provider.dart';
 import 'package:mobile_application/events/build_style_container.dart';
 import 'package:mobile_application/events/customTextField.dart';
 import 'package:mobile_application/events/custom_appBar.dart';
-import 'package:mobile_application/events/custom_button.dart';
 import 'package:mobile_application/events/login_model.dart';
 import 'package:mobile_application/events/page_loader.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoginNotifier>(builder: (context, loginNotifier, child) {
-
       loginNotifier.getPrefs();
 
       return Scaffold(
@@ -46,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             child: loginNotifier.entryPoint && loginNotifier.loggedIn
                 ? GestureDetector(
                     onTap: () {
-                      Get.back();
+                      Get.offAll(() => const PageThree());
                     },
                     child: Icon(CupertinoIcons.arrow_left_circle),
                   )
@@ -124,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
                             onTap: () {
-                              Get.to(() => const SignUp());
+                              Get.offAll(() => const SignUp());
                             },
                             child: const Text(
                               "Don't have an account?",
