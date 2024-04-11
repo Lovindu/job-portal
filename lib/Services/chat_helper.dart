@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as https;
 import 'package:mobile_application/Services/config.dart';
 import 'package:mobile_application/events/create_chat.dart';

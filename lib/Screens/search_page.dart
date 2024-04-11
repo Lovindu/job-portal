@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:mobile_application/Services/job_help.dart';
 import 'package:mobile_application/events/custom_search_bar.dart';
 import 'package:mobile_application/events/hobs_vertical_card.dart';
@@ -45,7 +44,12 @@ class _SearchPageState extends State<SearchPage> {
                     } else if (snapshot.hasError) {
                       return Text("Error : ${snapshot.error}");
                     } else if (snapshot.data!.isEmpty) {
-                      return Center(child: const Text("No Jobs Available 😕",style: TextStyle(fontSize:18 ,fontWeight: FontWeight.w700),));
+                      return const Center(
+                          child: Text(
+                        "No Jobs Available 😕",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700),
+                      ));
                     } else {
                       final jobs = snapshot.data;
 
@@ -61,7 +65,7 @@ class _SearchPageState extends State<SearchPage> {
                     }
                   }),
             )
-          : NoSearchResult(text: 'Start Searching . . . 🔍'),
+          : const NoSearchResult(text: 'Start Searching . . . 🔍'),
     );
   }
 }

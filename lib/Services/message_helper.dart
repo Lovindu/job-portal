@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as https;
 import 'package:mobile_application/Services/config.dart';
 import 'package:mobile_application/events/message_response.dart';

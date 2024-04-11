@@ -12,6 +12,7 @@ class GetJobRes {
   final String title;
   final String location;
   final String company;
+  final String contract;
   final String description;
   final String agentName;
   final String salary;
@@ -26,6 +27,7 @@ class GetJobRes {
     required this.title,
     required this.location,
     required this.company,
+    required this.contract,
     required this.description,
     required this.agentName,
     required this.salary,
@@ -41,6 +43,7 @@ class GetJobRes {
         title: json["title"],
         location: json["location"],
         company: json["company"],
+        contract: json["contract"],
         description: json["description"],
         agentName: json["agentName"],
         salary: json["salary"],
@@ -55,7 +58,8 @@ class GetJobRes {
         "_id": id,
         "title": title,
         "location": location,
-        "company":company,
+        "company": company,
+        "contract":contract,
         "description": description,
         "agentName": agentName,
         "salary": salary,

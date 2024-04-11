@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/route_manager.dart';
 import 'package:mobile_application/Screens/mainScreen.dart';
 import 'package:mobile_application/Services/chat_helper.dart';
@@ -121,7 +120,7 @@ class _JobDetailsState extends State<JobDetails> {
                                         CustomButton(
                                             height: 40,
                                             width: 100,
-                                            text: job.period,
+                                            text: job.contract,
                                             color: Colors.black),
                                         Row(
                                           children: [
@@ -209,7 +208,7 @@ class _JobDetailsState extends State<JobDetails> {
                                   if (response[0]) {
                                     SendMessage model = SendMessage(
                                         content:
-                                            "Hello i'm interested ${job.title} job in $job.location",
+                                            "Hello i'm interested ${job.title}",
                                         chatId: response[1],
                                         receiver: job.agentId);
                                     MesssagingHelper.sendMessage(model)

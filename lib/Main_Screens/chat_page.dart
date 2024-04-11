@@ -39,19 +39,19 @@ class _ChatPageState extends State<ChatPage> {
                 future: chatNotifier.chats,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   } else if (snapshot.hasError) {
                     return Text(
                       "Error${snapshot.error}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                           color: Colors.red),
                     );
                   } else if (snapshot.data!.isEmpty) {
-                    return SearchLoading(
+                    return const SearchLoading(
                       text: "No chats available",
                     );
                   } else {
@@ -100,17 +100,17 @@ class _ChatPageState extends State<ChatPage> {
                                     children: [
                                       Text(
                                         user.first.username,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             color: Colors.white,
                                             fontWeight: FontWeight.w600),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Text(
                                         chat.latestMessage.content,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 14,
                                             color: Colors.grey,
                                             fontWeight: FontWeight.normal),
@@ -129,7 +129,7 @@ class _ChatPageState extends State<ChatPage> {
                                         Text(
                                             chatNotifier.msgTime(
                                                 chat.updatedAt.toString()),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.grey,
                                                 fontWeight: FontWeight.normal)),

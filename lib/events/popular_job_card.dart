@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:mobile_application/Screens/job_details.dart';
-import 'package:mobile_application/events/custom_button.dart';
-import 'package:mobile_application/events/get_job.dart';
 import 'package:mobile_application/events/jobs_response.dart';
 
 class pJobCard extends StatelessWidget {

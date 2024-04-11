@@ -5,7 +5,6 @@ import 'package:get/route_manager.dart';
 import 'package:mobile_application/Screens/Login.dart';
 import 'package:mobile_application/Screens/loading.dart';
 import 'package:mobile_application/Screens/mainScreen.dart';
-import 'package:mobile_application/Screens/personal_details.dart';
 import 'package:mobile_application/controllers/chat_provider.dart';
 import 'package:mobile_application/controllers/image_provider.dart';
 import 'package:mobile_application/controllers/jobs_provider.dart';

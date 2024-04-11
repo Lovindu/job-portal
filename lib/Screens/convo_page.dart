@@ -167,7 +167,7 @@ class _CoversationPageState extends State<CoversationPage> {
                     onTap: () {
                       Get.to(() => MainScreen());
                     },
-                    child: Icon(
+                    child: const Icon(
                       MaterialCommunityIcons.arrow_left_circle,
                     ),
                   ),
@@ -185,19 +185,19 @@ class _CoversationPageState extends State<CoversationPage> {
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return Center(
+                              return const Center(
                                 child: CircularProgressIndicator(),
                               );
                             } else if (snapshot.hasError) {
                               return Text(
                                 "Error${snapshot.error}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                     color: Colors.red),
                               );
                             } else if (snapshot.data!.isEmpty) {
-                              return SearchLoading(
+                              return const SearchLoading(
                                 text: "You don't have any chats",
                               );
                             } else {
@@ -219,11 +219,11 @@ class _CoversationPageState extends State<CoversationPage> {
                                           Text(
                                             chatNotifier.msgTime(
                                                 data.chat.updatedAt.toString()),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.black),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           ChatBubble(
@@ -245,10 +245,10 @@ class _CoversationPageState extends State<CoversationPage> {
                                                         .receiverBubble),
                                             child: Container(
                                               constraints:
-                                                  BoxConstraints(maxWidth: 100),
+                                                  const BoxConstraints(maxWidth: 100),
                                               child: Text(
                                                 data.content,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 15,
                                                     color: Colors.black),
                                               ),
@@ -274,7 +274,7 @@ class _CoversationPageState extends State<CoversationPage> {
                               String msg = messageController.text;
                               sendMessage(msg, widget.id, receiver);
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.send,
                               size: 20,
                               color: Colors.white,

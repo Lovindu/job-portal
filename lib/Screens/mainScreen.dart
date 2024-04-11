@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:mobile_application/Main_Screens/chat_page.dart';
 import 'package:mobile_application/Main_Screens/home_page.dart';

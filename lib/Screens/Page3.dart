@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import 'package:mobile_application/Screens/Login.dart';
 import 'package:mobile_application/Screens/SignUp.dart';
-import 'package:mobile_application/Screens/mainScreen.dart';
 import 'package:mobile_application/events/custom_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

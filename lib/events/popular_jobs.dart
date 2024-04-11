@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:mobile_application/Screens/job_details.dart';
 import 'package:mobile_application/controllers/jobs_provider.dart';
-import 'package:mobile_application/events/build_style_container.dart';
 import 'package:mobile_application/events/jobs_horizontal_card.dart';
 import 'package:mobile_application/events/jobs_response.dart';
-import 'package:mobile_application/events/no_search_result.dart';
-import 'package:mobile_application/events/page_loader.dart';
 import 'package:provider/provider.dart';
 
 class PopularJobs extends StatelessWidget {

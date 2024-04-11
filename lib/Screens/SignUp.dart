@@ -6,7 +6,6 @@ import 'package:mobile_application/Screens/Login.dart';
 import 'package:mobile_application/Screens/Page3.dart';
 import 'package:mobile_application/controllers/login_provide.dart';
 import 'package:mobile_application/controllers/signup_provider.dart';
-import 'package:mobile_application/controllers/zoom_provider.dart';
 import 'package:mobile_application/events/build_style_container.dart';
 import 'package:mobile_application/events/customTextField.dart';
 import 'package:mobile_application/events/custom_appBar.dart';
@@ -46,7 +45,7 @@ class _SignUpState extends State<SignUp> {
                     onTap: () {
                        Get.offAll(() => const PageThree());
                     },
-                    child: Icon(CupertinoIcons.arrow_left_circle),
+                    child: const Icon(CupertinoIcons.arrow_left_circle),
                   )
           ),
         ),
@@ -69,7 +68,7 @@ class _SignUpState extends State<SignUp> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 30),
                           ),
-                          Text(
+                          const Text(
                             "JobSL!!!",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 45),
@@ -114,7 +113,7 @@ class _SignUpState extends State<SignUp> {
                             obscureText: signupNotifier.obscureText,
                             validator: (password) {
                               if (password!.isEmpty || password.length < 8) {
-                                return "Plase Enter a valid password with at least one uppercase letter, one lowercase, one digit, a special character and length of 8 characters";
+                                return "Plase Enter a valid password with at least of 8 characters";
                               }
                               return null;
                             },
@@ -165,7 +164,7 @@ class _SignUpState extends State<SignUp> {
                                     'Please check your user credentails',
                                     colorText: Colors.white,
                                     backgroundColor: Colors.red,
-                                    icon: Icon(Icons.add_alarm));
+                                    icon: const Icon(Icons.add_alarm));
                               }
                             },
                             child: Container(

@@ -64,7 +64,6 @@ class ImageUploader extends ChangeNotifier {
     await ref.putFile(image);
 
     imageUrl = (await ref.getDownloadURL());
-    print(imageUrl);
     return imageUrl;
   }
 }
