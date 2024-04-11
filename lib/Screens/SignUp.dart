@@ -124,8 +124,8 @@ class _SignUpState extends State<SignUp> {
                               },
                               child: Icon(
                                 signupNotifier.obscureText
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
                                 color: Colors.white,
                               ),
                             ),

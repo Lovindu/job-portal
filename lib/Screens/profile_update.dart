@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,7 +63,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Personal Details",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
@@ -75,7 +74,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             onTap: () {
                               imageUploader.pickImage();
                             },
-                            child: CircleAvatar(
+                            child: const CircleAvatar(
                               backgroundColor: Colors.blue,
                               //backgroundImage: ,
                               child: Center(
@@ -97,7 +96,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   })
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Form(
@@ -116,7 +115,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomTextField(
@@ -131,14 +130,14 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Professional Skills",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomTextField(
@@ -153,7 +152,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomTextField(
@@ -168,7 +167,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomTextField(
@@ -183,7 +182,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomTextField(
@@ -198,7 +197,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomTextField(
@@ -213,7 +212,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                       }
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Consumer<ImageUploader>(

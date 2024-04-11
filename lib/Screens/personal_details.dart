@@ -53,7 +53,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Personal Details",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -65,7 +65,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                               onTap: () {
                                 imageUploader.pickImage();
                               },
-                              child: CircleAvatar(
+                              child: const CircleAvatar(
                                 backgroundColor: Colors.blue,
                                 //backgroundImage: ,
                                 child: Center(
@@ -87,7 +87,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                     })
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Form(
@@ -106,7 +106,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -121,15 +121,15 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       "Professional Skills",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -144,7 +144,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -159,7 +159,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -174,7 +174,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -189,7 +189,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -204,7 +204,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Consumer<ImageUploader>(

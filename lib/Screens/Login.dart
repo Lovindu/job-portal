@@ -20,6 +20,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
@@ -108,8 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             child: Icon(
                               loginNotifier.obscureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Colors.white,
                             ),
                           ),

@@ -62,7 +62,7 @@ class PageOne extends StatelessWidget {
                         onTap: () {
                           Get.to(() => PageThree());
                         },
-                        child: Text(
+                        child: const Text(
                           "Next",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w600),

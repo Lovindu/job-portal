@@ -66,11 +66,6 @@ class PageThree extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            /*GestureDetector(
-                onTap: () {
-                  Get.to(() => const MainScreen());
-                },
-                child: const Text("Continue as a Guest"))*/
           ],
         ),
       ),

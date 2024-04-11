@@ -233,8 +233,8 @@ class _CoversationPageState extends State<CoversationPage> {
                                                 : Alignment.centerLeft,
                                             backGroundColor: data.sender.id ==
                                                     chatNotifier.userId
-                                                ? Colors.orange
-                                                : Colors.blue,
+                                                ? Colors.blue
+                                                : Colors.orange,
                                             elevation: 0,
                                             clipper: ChatBubbleClipper4(
                                                 radius: 5,
